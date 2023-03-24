@@ -1,0 +1,347 @@
+/*----Fonty----*/
+
+@font-face {
+	font-family: 'Atomic';
+	src: url('font/atomicage-regular.ttf');
+}
+@font-face {
+	font-family: 'BebasNeue';
+	src: url('font/BebasNeue-Regular.ttf');
+}
+@font-face {
+	font-family: 'Bitter';
+	src: url('font/Bitter-Regular.otf');
+}
+
+/*----END_OF_Fonty----*/
+
+
+
+/*Reset odstępów wewnętrznych i marginesów*/
+
+* {
+	margin: 0;
+	padding: 0;	
+}
+
+
+
+h2, p {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+body {
+	background-color: rgba(229, 229, 229, 1);
+	background-image: url('img/tlo.png');
+	background-blend-mode: normal;
+	padding-top: 10px;
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+header h2.logo {
+	font-family: Atomic, sans-serif;
+	font-size: 36px;
+	color: #089600;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+	border-bottom: 2px solid #626962;
+	margin: auto;
+	width: 240px;
+	text-align: center;
+}
+
+header h3.logo {
+	font-family: BebasNeue, sans-serif;
+	font-size: 22px;
+	color: #636962;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+	padding-top: 10px;
+	margin: auto;
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+
+
+/*----Nawigacja----*/
+
+nav	{
+	background-color: #19A000;
+	padding-top: 19px;
+	padding-bottom: 17px;
+	border-top: 3px solid #089600;
+	border-bottom: 3px solid #089600;
+	width: 100%;
+}
+
+nav ul {
+	font-size: 0;
+	margin: auto;
+	text-align: center;
+}
+
+nav ul li {
+	font-family: BebasNeue, sans-serif;
+	font-size: 22px;
+	letter-spacing: 1px;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	border-right: 2px solid #ffffff;
+	padding: 5px 8px 2px 8px;
+	display: inline;
+  transition: color 0.3s ease-in-out;
+}
+nav a {
+	text-decoration: none;
+}
+
+nav ul li:hover,
+nav ul li.active {
+	color: #05FF00;	
+}
+
+nav ul li:hover {
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+nav ul li.last {
+	border-right: none;
+}
+
+/*----END_OF_Nawigacja----*/
+
+
+
+/*----Przyklejona nawigacja----*/
+
+#sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.2s ease-in-out;
+	opacity: 0;
+	min-height: 1px;
+}
+
+nav#sticky div {
+	width: 75%;
+	margin: auto;
+	display: none;
+}
+
+nav#sticky ul {
+	display: inline-block;
+	float: right;
+	padding-top: 22px;
+}
+
+/*--Logo przyklejonej nawigacji--*/
+
+nav a.logo_nav {
+	display: inline-block;
+	float: left;
+}
+
+nav a.logo_nav h4 {	
+	font-family: Atomic, sans-serif;
+	font-size: 28px;
+	color: #0d3e00;
+	text-align: center;
+	border-bottom: 2px solid #0d5b00;
+	width: 75%;
+	margin: auto;
+	line-height: 32px;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	letter-spacing: 0.1rem;
+}
+
+nav a.logo_nav h5 {	
+	font-family: BebasNeue, sans-serif;
+	font-size: 22px;
+	color: #fff;
+	text-align: center;
+	padding-top: 5px;
+	letter-spacing: 0.12rem;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+nav a.logo_nav h4:hover,
+nav a.logo_nav h5:hover {
+	cursor: pointer;
+}
+
+/*----END_OF_Przyklejona nawigacja----*/
+
+
+
+/*----Duże obrazy banerowe----*/
+
+#baner_top {
+	background: linear-gradient(to bottom, 
+		rgba(5, 90, 0, 0.4), 
+		rgba(5, 90, 0, 0.2),
+		rgba(5, 90, 0, 0.4)), 
+	url('img/baner/baner_top.jpg');
+  background-position: center center;
+  background-size: cover;
+	background-repeat: no-repeat;
+	height: 500px;
+	height: 75vh;
+}
+
+#baner_beton, #baner_kolor {
+  background-position: center center;
+  background-size: cover;
+	background-repeat: no-repeat;
+  background-attachment: fixed;
+	height: 400px;
+	height: 50vh;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#baner_beton {
+	background-color: linear-gradient(to bottom, 
+		rgba(0, 0, 0, 0), 
+		rgba(5, 90, 0, 0.4));
+	background-image: url('img/baner/baner_beton.jpg');
+}
+
+#baner_kolor {
+	background-color: linear-gradient(to bottom, 
+		rgba(0, 0, 0, 0), 
+		rgba(5, 90, 0, 0.4));
+	background-image: url('img/baner/baner_kolor.jpg');
+}
+
+.baner {
+	position: relative;
+	box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+	width: 100%;
+	padding: 0px;
+}
+
+.baner h2 {
+	background-color: rgba(98, 105, 98, 0.7);
+	font-family: BebasNeue, sans-serif;
+	font-size: 36px;
+	letter-spacing: 1px;
+	color: #ffffff;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  background-color: rgba(98, 105, 98, 0.7);
+  border-bottom: 5px solid #089600;
+	text-align: center;
+	padding: 20px 50px 13px 50px;
+	margin: auto;
+	width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*----END_OF_Duże obrazy banerowe----*/
+
+
+
+section {
+	padding-left: 8%;
+	padding-right: 8%;
+}
+
+section h2, h3 {
+	font-family: BebasNeue, sans-serif;
+	font-size: 36px;
+	letter-spacing: 1px;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+	color: #089600;
+	margin-top: 20px;
+	text-align: center;
+}
+
+section hr {
+	width: 75%;
+	margin: 12px auto 20px auto;
+	border: 1px solid #626962;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+section p {
+	font-family: Bitter, serif;
+	font-size: 18px;
+	text-align: justify;
+	letter-spacing: 0.05rem;
+	line-height: 1.5rem;
+}
+
+
+
+/*----Galeria----*/
+
+.gallery p {
+	text-align: center;
+}
+
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery .wrapper {
+  width: 30%;
+  margin: 1%;
+	border: 2px solid #626962;
+	box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+	position: relative;
+  justify-content: center;	
+  transition: all 0.2s ease-in-out;
+}
+
+.gallery .wrapper img {
+  width: auto;
+  height: 140px;
+  display: block;
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.gallery .wrapper:hover {
+  transform: scale(1.1);
+}
+
+.gallery .wrapper .gallery-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+	background-image: radial-gradient(
+		rgba(25, 160, 0, 0.15),
+		rgba(25, 160, 0, 0.3));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gallery .wrapper .gallery-hover p {
+  color: #333;
+  font-size: 28px;
+  background-color: #fff;
+}
+
+.gallery .wrapper:hover .gallery-hover {
+  opacity: 1;	
+}
+
+/*----END_OF_Galeria----*/
