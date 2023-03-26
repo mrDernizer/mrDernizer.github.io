@@ -1,5 +1,5 @@
 //----Zmiana między przyklejoną nawigacją, a normalną
-window.addEventListener("scroll", function() {
+window.addEventListener("scroll", function () {
 
 	var mainNav = document.querySelector("#normal");
 	var mainNavOffset = mainNav.offsetTop + 69;
@@ -16,44 +16,83 @@ window.addEventListener("scroll", function() {
 		stickyNav.style.opacity = "0";
 	}
 });
-//----Powolne przewijanie do elementu oraz nadanie klasy active
-// document.addEventListener('click', function(event) {
-// 	var id = "";
-//   console.log(event);
 
-//   //----Sprawdzanie, czy dany element znajduje się w menu nawigacji
-//   //----Oraz przechwytywanie wartości value elementu, pewnie da się to zrobić lepiej, ale spełnia wymagania
-//   //----Następnie powolny scroll do elementu o Id wyłuskanym z Value klikniętego obiektu 
-//   if ((event.target.tagName === 'LI' || 
-//   	event.target.tagName === 'H4' || 
-//   	event.target.tagName === 'H5') && 
-//   	event.target.attributes.getNamedItem('value') !== '') {
-//   		id = event.target.attributes.getNamedItem('value').nodeValue;
-//   		console.log(id);
-
-//   		document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-
-//   		//----Jeśli element to 'LI', dodatkowo dodaje do niego klasę active
-//   		//----Usuwając poprzednio tą klasę z innego elementu
-//   		if (event.target.tagName === 'LI') {
-//   			var active = document.getElementsByClassName("active");
-
-//   			console.log(active);
-//   			console.log(event.target);
-
-//   			if (active.length !== 0) {
-// 					for (var i = 0; i < active.length; i++) {
-// 						for (var j = 0; j < active[i].classList.length; j++) {
-// 							console.log(active[i].classList[j]);
-// 						  active[i].classList[j] = "";
-// 						}
-// 					}
-//   			}
-//   			event.target.classList.add('active');		
-//   		}
-//   }
-// });
-
-$('nav li').on('click', () => {
-  $('.login-form').toggle();
+//----Scrollowanie po nawigacji
+$(".logo_nav").click(function () {
+	$("nav li").removeClass("active");
+	$('html, body').animate({
+		scrollTop: 0
+	}, 1000);
 });
+
+$("nav li").click(function () {
+	$("nav li").removeClass("active");
+	var id = $(this).attr("value");
+	$("li[value='" + id + "']").addClass("active");
+	var idOffset = $(id).offset().top - 90;
+	$('html, body').animate({
+		scrollTop: idOffset
+	}, 1000);
+
+	console.log(id);
+	console.log(idOffset);
+});
+
+var about, baner_beton, baner_kolor, contact, map = 0;
+
+about = $("#about").offset().top;
+baner_beton = $("#baner_beton").offset().top;
+baner_kolor = $("#baner_kolor").offset().top;
+contact = $("#contact").offset().top;
+map = $("#map").offset().top;
+
+$(window).resize(function () {
+	about = $("#about").offset().top;
+	baner_beton = $("#baner_beton").offset().top;
+	baner_kolor = $("#baner_kolor").offset().top;
+	contact = $("#contact").offset().top;
+	map = $("#map").offset().top;
+});
+
+$(window).scroll(function () {
+	var scrollPos = $(window).scrollTop() + 100;
+	$("nav li").removeClass("active");
+
+	if (scrollPos >= about && scrollPos < baner_beton ) {
+		$("li[value='#about']").addClass("active");
+		console.log(scrollPos);
+	}
+	else if (scrollPos >= baner_beton && scrollPos < baner_kolor ) {
+		console.log(scrollPos);
+		$("li[value='#baner_beton']").addClass("active");
+	}
+	else if (scrollPos > baner_kolor && scrollPos < contact ) {
+		console.log(scrollPos);
+		$("li[value='#baner_kolor']").addClass("active");
+	}
+	else if (scrollPos > contact && scrollPos < map ) {
+		console.log(scrollPos);
+		$("li[value='#contact']").addClass("active");
+	}
+	else if (scrollPos > map) {
+		$("nav li").removeClass("active");
+		$("li[value='#map']").addClass("active");
+	}
+});
+
+
+
+// Fallback for IE9
+if (document.all && !window.atob) {
+  var galleryItems = document.querySelectorAll('.wrapper');
+  var galleryGrid = document.querySelector('.gallery-grid');
+  
+  for (var i = 0; i < galleryItems.length; i++) {
+    galleryItems[i].style.width = '30%';
+    galleryItems[i].style.margin = '1%';
+  }
+  
+  galleryGrid.style.display = '-ms-flexbox';
+  galleryGrid.style.msFlexWrap = 'wrap';
+  galleryGrid.style.msFlexPack = 'center';
+}

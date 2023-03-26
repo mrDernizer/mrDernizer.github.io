@@ -345,3 +345,7 @@ section p {
 }
 
 /*----END_OF_Galeria----*/
+
+body {
+	padding-bottom: 500px;
+}
