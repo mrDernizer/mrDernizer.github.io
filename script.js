@@ -17,39 +17,43 @@ window.addEventListener("scroll", function() {
 	}
 });
 //----Powolne przewijanie do elementu oraz nadanie klasy active
-document.addEventListener('click', function(event) {
-	var id = "";
-  console.log(event);
+// document.addEventListener('click', function(event) {
+// 	var id = "";
+//   console.log(event);
 
-  //----Sprawdzanie, czy dany element znajduje się w menu nawigacji
-  //----Oraz przechwytywanie wartości value elementu, pewnie da się to zrobić lepiej, ale spełnia wymagania
-  //----Następnie powolny scroll do elementu o Id wyłuskanym z Value klikniętego obiektu 
-  if ((event.target.tagName === 'LI' || 
-  	event.target.tagName === 'H4' || 
-  	event.target.tagName === 'H5') && 
-  	event.target.attributes.getNamedItem('value') !== '') {
-  		id = event.target.attributes.getNamedItem('value').nodeValue;
-  		console.log(id);
+//   //----Sprawdzanie, czy dany element znajduje się w menu nawigacji
+//   //----Oraz przechwytywanie wartości value elementu, pewnie da się to zrobić lepiej, ale spełnia wymagania
+//   //----Następnie powolny scroll do elementu o Id wyłuskanym z Value klikniętego obiektu 
+//   if ((event.target.tagName === 'LI' || 
+//   	event.target.tagName === 'H4' || 
+//   	event.target.tagName === 'H5') && 
+//   	event.target.attributes.getNamedItem('value') !== '') {
+//   		id = event.target.attributes.getNamedItem('value').nodeValue;
+//   		console.log(id);
 
-  		document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//   		document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
 
-  		//----Jeśli element to 'LI', dodatkowo dodaje do niego klasę active
-  		//----Usuwając poprzednio tą klasę z innego elementu
-  		if (event.target.tagName === 'LI') {
-  			var active = document.getElementsByClassName("active");
+//   		//----Jeśli element to 'LI', dodatkowo dodaje do niego klasę active
+//   		//----Usuwając poprzednio tą klasę z innego elementu
+//   		if (event.target.tagName === 'LI') {
+//   			var active = document.getElementsByClassName("active");
 
-  			console.log(active);
-  			console.log(event.target);
+//   			console.log(active);
+//   			console.log(event.target);
 
-  			if (active.length !== 0) {
-					for (var i = 0; i < active.length; i++) {
-						for (var j = 0; j < active[i].classList.length; j++) {
-							console.log(active[i].classList[j]);
-						  active[i].classList[j] = "";
-						}
-					}
-  			}
-  			event.target.classList.add('active');		
-  		}
-  }
+//   			if (active.length !== 0) {
+// 					for (var i = 0; i < active.length; i++) {
+// 						for (var j = 0; j < active[i].classList.length; j++) {
+// 							console.log(active[i].classList[j]);
+// 						  active[i].classList[j] = "";
+// 						}
+// 					}
+//   			}
+//   			event.target.classList.add('active');		
+//   		}
+//   }
+// });
+
+$('nav li').on('click', () => {
+  $('.login-form').toggle();
 });
