@@ -37,8 +37,13 @@ body {
 	background-blend-mode: normal;
 	padding-top: 10px;
 	width: 100%;
+}
+
+.wrapper {
+	width: 100%;
 	max-width: 960px;
 	margin: 0 auto;
+	padding-bottom: 20px;
 }
 
 header h2.logo {
@@ -249,8 +254,6 @@ nav a.logo_nav h5:hover {
 
 /*----END_OF_Duże obrazy banerowe----*/
 
-
-
 section {
 	padding-left: 8%;
 	padding-right: 8%;
@@ -281,8 +284,6 @@ section p {
 	line-height: 1.5rem;
 }
 
-
-
 /*----Galeria----*/
 
 .gallery p {
@@ -295,7 +296,7 @@ section p {
   justify-content: center;
 }
 
-.gallery .wrapper {
+.gallery .gallery-wrapper {
   width: 30%;
   margin: 1%;
 	border: 2px solid #626962;
@@ -305,7 +306,7 @@ section p {
   transition: all 0.2s ease-in-out;
 }
 
-.gallery .wrapper img {
+.gallery .gallery-wrapper img {
   width: auto;
   height: 140px;
   display: block;
@@ -313,11 +314,11 @@ section p {
   transition: all 0.3s ease-in-out;
 }
 
-.gallery .wrapper:hover {
+.gallery .gallery-wrapper:hover {
   transform: scale(1.1);
 }
 
-.gallery .wrapper .gallery-hover {
+.gallery .gallery-wrapper .gallery-hover {
   position: absolute;
   top: 0;
   left: 0;
@@ -334,18 +335,144 @@ section p {
   transition: opacity 0.3s ease-in-out;
 }
 
-.gallery .wrapper .gallery-hover p {
+.gallery .gallery-wrapper .gallery-hover p {
   color: #333;
   font-size: 28px;
   background-color: #fff;
 }
 
-.gallery .wrapper:hover .gallery-hover {
+.gallery .gallery-wrapper:hover .gallery-hover {
   opacity: 1;	
 }
 
 /*----END_OF_Galeria----*/
 
-body {
-	padding-bottom: 500px;
+/*----Kontakt----*/
+
+.error-message {
+	color: red;
+	font-size: 12px;
 }
+
+section#contact a {
+	text-decoration: none;
+	color: #089600;
+  transition: color 0.3s ease-in-out;
+	font-weight: bold;
+}
+
+section#contact a:hover  {	
+	color: #0ABE00;	
+}
+
+section#contact div.contact_wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 0;
+	margin-bottom: 20px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+section#contact div.contact_wrapper p.contact {
+	margin: 0 5px 0 0;
+	font-size: 16px;
+}
+
+section#contact div.contact_wrapper .icon {
+	margin-right: 10px;
+}
+
+section#contact div.contact_wrapper .flag {
+	margin-right: 7px;
+}
+
+/*----END_OF_Kontakt----*/
+
+/*----Mapa----*/
+
+#map div {
+	width: 520px;
+	margin: auto;
+	text-align: center;
+	border: 2px solid #626962;
+}
+
+/*----END_OF_Mapa----*/
+
+/*----Footer----*/
+
+footer {
+	width: 100%;
+	background: #19A000;
+	border-top: 3px solid #089600;
+	border-bottom: 3px solid #089600;
+  overflow: auto;
+	
+	font-family: BebasNeue, sans-serif;
+	font-size: 18px;
+	letter-spacing: 1px;
+	color: #ffffff;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+footer .footer-wrapper {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+footer a {
+	text-decoration: none;
+	color: #ffffff;
+  transition: color 0.3s ease-in-out;
+}
+
+footer a:hover {	
+	color: #05FF00;	
+}
+
+footer .left {
+	width: 60%;
+}
+
+footer .right {
+	width: 40%;
+	text-align: right;
+}
+
+.icon {
+	width: 35px;
+	height: 35px;
+	margin-right: 20px;
+}
+
+.flag {
+	width: 25px;
+	margin-right: 10px;
+}
+
+p.contact {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 5px 0;
+}
+
+/*----END_OF_Footer----*/
+
+

@@ -80,8 +80,6 @@ $(window).scroll(function () {
 	}
 });
 
-
-
 // Fallback for IE9
 if (document.all && !window.atob) {
   var galleryItems = document.querySelectorAll('.wrapper');
@@ -95,4 +93,62 @@ if (document.all && !window.atob) {
   galleryGrid.style.display = '-ms-flexbox';
   galleryGrid.style.msFlexWrap = 'wrap';
   galleryGrid.style.msFlexPack = 'center';
+}
+
+// Formularz kontaktowy, walidacja
+function validateForm() {
+	console.log("Działa walidacja");
+	var name = document.getElementById("name").value;
+	var email = document.getElementById("email").value;
+	var message = document.getElementById("message").value;
+	var captcha = document.getElementById("captcha").value;
+
+	console.log(name, email, message, captcha);
+
+	document.getElementById("name-error").innerHTML = "";
+	document.getElementById("email-error").innerHTML = "";
+	document.getElementById("message-error").innerHTML = "";
+	document.getElementById("captcha-error").innerHTML = "";
+
+	var isValid = true;
+
+	if (name === '') {
+			document.getElementById("name-error").innerHTML = "Pole Imię jest wymagane!";
+			isValid = false;
+	}
+	else if (name.length <= 3) {
+			document.getElementById("name-error").innerHTML = "Pole Imię ma być dłuższe od 3 znaków!";
+			isValid = false;
+	}
+
+	if (email === '') {
+			document.getElementById("email-error").innerHTML = "Pole E-mail jest wymagane!";
+			isValid = false;
+	}
+	else if (!validateEmail(email)) {
+		document.getElementById("email-error").innerHTML = "Proszę podać poprawny adres email.";
+	}	
+
+	if (message === '') {
+			document.getElementById("message-error").innerHTML = "Pole Treść wiadomości jest wymagane!";
+			isValid = false;
+	}
+
+	if (captcha === '') {
+			document.getElementById("captcha-error").innerHTML = "Pole Kod Captcha jest wymagane!";
+			isValid = false;
+	}
+
+	if (isValid) {
+			alert("Formularz został wysłany!");
+			return true;
+	} else {
+			return false;
+	}
+}
+
+// Walidacja pola email
+function validateEmail(email) {
+	var emailPattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+	return emailPattern.test(email);
 }
